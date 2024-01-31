@@ -28,11 +28,11 @@ app.use("/api/v1", workerDetails);
 app.use("/api/v1", bookedRoute );
 app.use("/api/v1", queryRoute );
 
-// app.use(express.static(path.join(__dirname,"./build")))
+app.use(express.static(path.join(__dirname,"./build")))
 
-// app.get("*",(req,resp)=>{
-//     resp.sendFile(path.join(__dirname,"./build/index.html"));
-// })
+app.get("*",(req,resp)=>{
+    resp.sendFile(path.join(__dirname,"./build/index.html"));
+})
 
 app.use(errorMiddleware);
 
