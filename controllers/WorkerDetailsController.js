@@ -29,7 +29,7 @@ exports.addWorkerDetails = CatchAsyncErrors(async (req, resp, next) => {
     const imagesLinks = [];
 
     for (let i = 0; i < images1.length; i++) {
-        const result = await cloudniary.v2.uploader.upload(images1[i], { folder: "workers" });
+        const result = await cloudniary.v2.uploader.upload(images1[i], { folder: "carWorkers" });
         imagesLinks.push({
             public_id: result.public_id,
             url: result.secure_url,
@@ -74,7 +74,7 @@ exports.updateWorkersDetails = CatchAsyncErrors(async (req, resp, next) => {
 
         const imagesLinks = [];
         for (let i = 0; i < images.length; i++) {
-            const result = await cloudniary.v2.uploader.upload(images[i], { folder: "workers" });
+            const result = await cloudniary.v2.uploader.upload(images[i], { folder: "carWorkers" });
             imagesLinks.push({
                 public_id: result.public_id,
                 url: result.secure_url,

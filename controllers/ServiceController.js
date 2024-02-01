@@ -19,7 +19,7 @@ exports.createService = CatchAsyncErrors(async (req, resp) => {
     const imagesLinks = [];
 
     for (let i = 0; i < images.length; i++) {
-        const result = await cloudniary.v2.uploader.upload(images[i], { folder: "services" });
+        const result = await cloudniary.v2.uploader.upload(images[i], { folder: "carServices" });
         imagesLinks.push({
             public_id: result.public_id,
             url: result.secure_url,
@@ -77,7 +77,7 @@ exports.updateService = CatchAsyncErrors(async (req, resp, next) => {
 
         const imagesLinks = [];
         for (let i = 0; i < images.length; i++) {
-            const result = await cloudniary.v2.uploader.upload(images[i], { folder: "services" });
+            const result = await cloudniary.v2.uploader.upload(images[i], { folder: "carServices" });
             imagesLinks.push({
                 public_id: result.public_id,
                 url: result.secure_url,

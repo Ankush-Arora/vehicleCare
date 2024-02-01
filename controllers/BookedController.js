@@ -5,7 +5,7 @@ const Booked=require("../Entity/BookedEntity");
 
 // Booking new Service
 exports.bookedService=CatchAsyncErrors(async(req,resp,next)=>{
-    let {user,serviceName,name,email,phoneNumber,workDetails,serviceId}=req.body;
+    let {user,serviceName,name,email,phoneNumber,workDetails,serviceId,vehicleNumber,vehicleName}=req.body;
     name=req.user.name;
     email=req.user.email;
     user=req.user._id;
@@ -18,11 +18,11 @@ exports.bookedService=CatchAsyncErrors(async(req,resp,next)=>{
         "pincode":req.body.pincode
 }
      
-    if(!user || !serviceName || !email || !phoneNumber || !address){
+    if(!user || !serviceName || !email || !phoneNumber || !address || !vehicleNumber || !vehicleName){
         return next(new ErrorHandler("Please enter all fields",200));
     }
 
-    const createBooking= await Booked.create({user,serviceId,serviceName,name,email,phoneNumber,address,workDetails});
+    const createBooking= await Booked.create({user,serviceId,serviceName,name,email,phoneNumber,address,workDetails,vehicleNumber,vehicleName});
 
     return resp.status(201).json({ success: true, createBooking });
 })

@@ -20,6 +20,16 @@ const bookedSchema = new mongoose.Schema({
         required: [true, "Please enter your name"],
         trim: true
     },
+    vehicleName: {
+        type: String,
+        required: [true, "Please enter vehicle name"],
+        trim: true
+    },
+    vehicleNumber: {
+        type: String,
+        required: [true, "Please enter vehicle number"],
+        trim: true
+    },
     email: {
         type: String,
         required: [true, "Please enter email name"],
